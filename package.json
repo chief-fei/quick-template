@@ -1,6 +1,6 @@
 {
-  "name": "quick-template",
-  "displayName": "quick-template",
+  "name": "fast-template",
+  "displayName": "fast-template",
   "version": "1.0.0",
   "description": "quick create react component or vue component with vscode extension",
   "categories": [
@@ -40,35 +40,35 @@
   "contributes": {
     "commands": [
       {
-        "command": "quick-template.createReactComponent",
+        "command": "fast-template.createReactComponent",
         "title": "创建 React 组件"
       },
       {
-        "command": "quick-template.createVueComponent",
+        "command": "fast-template.createVueComponent",
         "title": "创建 Vue 组件"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "submenu": "quick-template.createComponent",
+          "submenu": "fast-template.createComponent",
           "group": "1_modification"
         }
       ],
-      "quick-template.createComponent": [
+      "fast-template.createComponent": [
         {
-          "command": "quick-template.createReactComponent",
+          "command": "fast-template.createReactComponent",
           "group": "1_modification"
         },
         {
-          "command": "quick-template.createVueComponent",
+          "command": "fast-template.createVueComponent",
           "group": "1_modification"
         }
       ]
     },
     "submenus": [
       {
-        "id": "quick-template.createComponent",
+        "id": "fast-template.createComponent",
         "label": "创建组件",
         "icon": "$(file-add)"
       }

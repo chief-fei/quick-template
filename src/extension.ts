@@ -3,12 +3,12 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
   const createReactComponentDisposable = vscode.commands.registerCommand(
-    'quick-template.createReactComponent',
+    'fast-template.createReactComponent',
     async (uri: vscode.Uri) => createComponent(context, uri, 'react-component', 'react'),
   );
 
   const createVueComponentDisposable = vscode.commands.registerCommand(
-    'quick-template.createVueComponent',
+    'fast-template.createVueComponent',
     async (uri: vscode.Uri) => createComponent(context, uri, 'vue-component', 'vue'),
   );
 

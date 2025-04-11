@@ -4,7 +4,7 @@
  * @LastEditTime: 2025-04-11 10:45:25
  * @LastEditors: 酋长(chief)
  * @Description: 创建组件
- * @FilePath: /quick-template/src/utils/createComponent.ts
+ * @FilePath: /fast-template/src/utils/createComponent.ts
  */
 
 import nodePlop from 'node-plop';

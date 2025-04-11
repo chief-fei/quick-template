@@ -4,7 +4,7 @@
  * @LastEditTime: 2025-04-11 10:44:35
  * @LastEditors: 酋长(chief)
  * @Description:
- * @FilePath: /quick-template/vite.config.ts
+ * @FilePath: /fast-template/vite.config.ts
  */
 import { resolve } from 'path';
 import { defineConfig } from 'vite';

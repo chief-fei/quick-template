@@ -25,10 +25,10 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/chief-fei/quick-template.git
+git clone https://github.com/chief-fei/fast-template.git
 
 # 进入项目目录
-cd quick-template
+cd fast-template
 
 # 安装依赖
 pnpm install
