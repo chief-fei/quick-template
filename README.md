@@ -1,19 +1,14 @@
-# Top Boilerplate
+# fast-template
 
-一个现代化的 VSCode 扩展开发模板，使用 Vite 作为构建工具，支持快速创建 React 和 Vue 组件。
+一个现代化的 VSCode 扩展开发模板，使用 Vite 作为构建工具，支持快速创建 React/Vue 组件、小程序页面和组件。
 
 ## 特性
 
-- 🚀 使用 Vite 进行快速构建
-- 📦 使用 pnpm 作为包管理器
-- 📦 使用 plop 作为组件模板引擎
-- 🎯 TypeScript 支持
-- 🔍 ESLint 和 Prettier 代码规范
-- 🧪 测试支持
-- 📝 完整的开发文档
-- ⚡ 快速创建 React/Vue 组件
-- 🎨 支持自定义组件模板
-- 🔒 Git 提交检查 (Husky + lint-staged)
+- 支持快速创建 React/Vue 组件
+- 支持快速创建微信小程序页面
+- 支持快速创建微信小程序组件
+- 支持 ts/js 选择
+- 支持vue组件的 composition/options 类型选择
 
 ## 快速开始
 
