@@ -46,6 +46,14 @@
       {
         "command": "fast-template.createVueComponent",
         "title": "创建 Vue 组件"
+      },
+      {
+        "command": "fast-template.createMiniPage",
+        "title": "创建小程序页面"
+      },
+      {
+        "command": "fast-template.createMiniComponent",
+        "title": "创建小程序组件"
       }
     ],
     "menus": {
@@ -63,25 +71,27 @@
         {
           "command": "fast-template.createVueComponent",
           "group": "1_modification"
+        },
+        {
+          "command": "fast-template.createMiniPage",
+          "group": "1_modification"
+        },
+        {
+          "command": "fast-template.createMiniComponent",
+          "group": "1_modification"
         }
       ]
     },
     "submenus": [
       {
         "id": "fast-template.createComponent",
-        "label": "创建组件",
+        "label": "模板创建",
         "icon": "$(file-add)"
       }
     ]
   },
   "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact",
-    "onLanguage:vue",
-    "onLanguage:javascriptvue",
-    "onLanguage:typescriptvue"
+    "onStartupFinished"
   ],
   "commitlint": {
     "extends": [

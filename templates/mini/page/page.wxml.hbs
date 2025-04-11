@@ -1,0 +1,49 @@
+<view class="{{fileName}} {{className}}">
+  {{!-- 页面头部 --}}
+  <view class="{{fileName}}__header">
+    <slot name="header">
+      <text class="{{fileName}}__title">{{fileName}}</text>
+    </slot>
+  </view>
+
+  {{!-- 页面内容区 --}}
+  <view class="{{fileName}}__content">
+    <slot></slot>
+  </view>
+
+  {{!-- 页面底部 --}}
+  <view class="{{fileName}}__footer">
+    <slot name="footer"></slot>
+  </view>
+
+  {{!-- 加载状态 --}}
+  <view class="{{fileName}}__loading" wx:if="{{loading}}">
+    <slot name="loading">
+      <view class="{{fileName}}__loading-icon"></view>
+      <text class="{{fileName}}__loading-text">{{loadingText}}</text>
+    </slot>
+  </view>
+
+  {{!-- 空状态 --}}
+  <view class="{{fileName}}__empty" wx:if="{{isEmpty}}">
+    <slot name="empty">
+      <image
+        class="{{fileName}}__empty-image"
+        src="{{emptyImage}}"
+        mode="aspectFit"
+      />
+      <text class="{{fileName}}__empty-text">{{emptyText}}</text>
+    </slot>
+  </view>
+
+  {{!-- 错误状态 --}}
+  <view class="{{fileName}}__error" wx:if="{{error}}">
+    <slot name="error">
+      <text class="{{fileName}}__error-text">{{error.message}}</text>
+      <button
+        class="{{fileName}}__error-button"
+        bind:tap="handleRetry"
+      >重试</button>
+    </slot>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+{{!-- 组件模板 --}}
+<template name="{{fileName}}">
+  <view class="{{fileName}} {{className}}">
+    {{!-- 组件头部 --}}
+    <view class="{{fileName}}__header" wx:if="{{showHeader}}">
+      <slot name="header">
+        <text class="{{fileName}}__title">{{title}}</text>
+      </slot>
+    </view>
+
+    {{!-- 组件内容区 --}}
+    <view class="{{fileName}}__content">
+      <slot></slot>
+    </view>
+
+    {{!-- 组件底部 --}}
+    <view class="{{fileName}}__footer" wx:if="{{showFooter}}">
+      <slot name="footer">
+        <view class="{{fileName}}__actions">
+          <button
+            class="{{fileName}}__button {{fileName}}__button--cancel"
+            bind:tap="handleCancel"
+          >取消</button>
+          <button
+            class="{{fileName}}__button {{fileName}}__button--confirm"
+            bind:tap="handleConfirm"
+          >确定</button>
+        </view>
+      </slot>
+    </view>
+
+    {{!-- 加载状态 --}}
+    <view class="{{fileName}}__loading" wx:if="{{loading}}">
+      <slot name="loading">
+        <view class="{{fileName}}__loading-icon"></view>
+        <text class="{{fileName}}__loading-text">{{loadingText}}</text>
+      </slot>
+    </view>
+
+    {{!-- 空状态 --}}
+    <view class="{{fileName}}__empty" wx:if="{{isEmpty}}">
+      <slot name="empty">
+        <image
+          class="{{fileName}}__empty-image"
+          src="{{emptyImage}}"
+          mode="aspectFit"
+        />
+        <text class="{{fileName}}__empty-text">{{emptyText}}</text>
+      </slot>
+    </view>
+
+    {{!-- 错误状态 --}}
+    <view class="{{fileName}}__error" wx:if="{{error}}">
+      <slot name="error">
+        <text class="{{fileName}}__error-text">{{error.message}}</text>
+        <button
+          class="{{fileName}}__error-button"
+          bind:tap="handleRetry"
+        >重试</button>
+      </slot>
+    </view>
+  </view>
+</template>

@@ -1,10 +1,10 @@
 /*
  * @Author: 酋长(chief)
  * @Date: 2025-04-09 09:30:19
- * @LastEditTime: 2025-04-11 10:45:25
+ * @LastEditTime: 2025-04-11 17:57:02
  * @LastEditors: 酋长(chief)
  * @Description: 创建组件
- * @FilePath: /fast-template/src/utils/createComponent.ts
+ * @FilePath: /top-boilerplate/src/utils/createComponent.ts
  */
 
 import nodePlop from 'node-plop';
@@ -12,7 +12,7 @@ import path from 'path';
 import * as vscode from 'vscode';
 
 interface PlopOptions {
-  templateName: 'react-page' | 'vue-page' | 'react-component' | 'vue-component';
+  templateName: 'mini-page' | 'mini-component' | 'react-component' | 'vue-component';
   fileName: string;
   languageType?: string;
   filePath: string;
@@ -22,8 +22,8 @@ interface PlopOptions {
 export async function createComponent(
   _context: vscode.ExtensionContext,
   uri: vscode.Uri,
-  templateName: 'react-page' | 'vue-page' | 'react-component' | 'vue-component',
-  templateLanguage: 'react' | 'vue',
+  templateName: 'mini-page' | 'mini-component' | 'react-component' | 'vue-component',
+  templateLanguage: 'react' | 'vue' | 'mini',
 ) {
   const plopOptions: PlopOptions = {
     templateName,
@@ -42,7 +42,7 @@ export async function createComponent(
     plopOptions.componentType = (await getComponentType()) as string;
   }
 
-  if (templateName.includes('react-')) {
+  if (templateName.includes('react-') || templateName.includes('mini-')) {
     plopOptions.languageType = (await getLanguageType()) as string;
   }
 
@@ -61,7 +61,9 @@ const getPlopInstance = async () => {
  * @param templateLanguage 模板语言
  * @returns 组件名称
  */
-const getComponentName = async (templateLanguage: 'react' | 'vue'): Promise<string | undefined> => {
+const getComponentName = async (
+  templateLanguage: 'react' | 'vue' | 'mini',
+): Promise<string | undefined> => {
   const componentName = await vscode.window.showInputBox({
     prompt: `请输入${templateLanguage === 'react' ? 'React' : 'Vue'}组件名称`,
     placeHolder: `例如: ${templateLanguage === 'react' ? 'myComponent' : 'my-component'}`,
@@ -135,12 +137,12 @@ const generateTemplate = async (options: PlopOptions) => {
     .runActions(options)
     .then((res) => {
       if (res.failures.length) {
-        vscode.window.showErrorMessage(`❌创建组件失败`);
+        vscode.window.showErrorMessage(`❌创建失败`);
       } else {
-        vscode.window.showInformationMessage('✅创建组件成功');
+        vscode.window.showInformationMessage('✅创建成功');
       }
     })
     .catch(() => {
-      vscode.window.showErrorMessage(`❌创建组件错误`);
+      vscode.window.showErrorMessage(`❌创建错误`);
     });
 };
