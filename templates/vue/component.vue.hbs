@@ -1,0 +1,125 @@
+<script setup lang="ts">
+{{#if (eq componentType "composition")}}
+// 1. 导入
+import { ref, computed, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
+defineOptions({
+  name: '{{fileName}}'
+})
+
+// 2. 接口/类型定义
+interface I{{pascalCase fileName}}Props {
+  title?: string
+}
+
+// 3. 定义 props 和 emits
+const props = defineProps<I{{pascalCase fileName}}Props>()
+const emit = defineEmits<{
+  (e: 'update'): void
+}>()
+
+// 4. 响应式数据
+const count = ref(0) // 计数器
+const router = useRouter() // 路由
+
+// 5. 计算属性
+const doubleCount = computed(() => count.value * 2)
+
+// 6. 监听属性
+watch(count, (newVal, oldVal) => {
+  console.log(newVal, oldVal)
+})
+
+// 7. 方法定义
+const increment = () => {
+  count.value++
+}
+
+// 8. 生命周期钩子
+onMounted(() => {
+  // 初始化逻辑
+})
+
+{{else}}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: '{{fileName}}',
+  props: {
+    // 在这里定义组件的 props
+    title: {
+    type: String,
+      default: '默认标题',
+    },
+  },
+  data() {
+    return {
+      // 在这里定义组件的数据
+      count: 0,
+    }
+  },
+  computed: {
+    // 计算属性定义
+    // 计算属性之间加空格
+    doubleCount() {
+      return this.count * 2
+    }
+  },
+  watch: {
+    // 监听属性定义
+    // 监听属性之间加空格
+    count(newVal, oldVal) {
+      console.log(newVal, oldVal)
+    }
+  },
+  methods: {
+    // 在这里定义组件的方法
+    // 方法之间加空格，jsdoc 注释清楚
+    /**
+    * 增加计数器
+    */
+    increment() {
+      this.count++
+    },
+
+    /**
+    * 减少计数器
+    */
+    decrement() {
+      this.count--
+    }
+  },
+
+  // 生命周期钩子
+  created() {
+    // 创建时的逻辑
+  },
+
+  mounted() {
+    // 挂载时的逻辑
+  },
+
+  beforeUnmount() {
+    // 卸载前的逻辑
+  },
+
+  unmounted() {
+    // 卸载后的逻辑
+  }
+})
+{{/if}}
+</script>
+
+<template>
+  <div>
+    <h1>\{{ {{#if (eq componentType "composition")}}props.{{/if}}title || '默认标题' }}</h1>
+    <p>Count: \{{ count }}</p>
+    <p>Double: \{{ doubleCount }}</p>
+    <button @click="increment">+1</button>
+  </div>
+</template>
+
+<style scoped lang="scss">
+/* 在这里编写组件的样式，根据项目配置决定 lang="scss" 或 lang="less" */
+</style>

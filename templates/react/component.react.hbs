@@ -1,0 +1,131 @@
+import { FC, useState, useEffect, useRef, useMemo, useCallback } from 'react'
+{{#if (eq languageType "typescript")}}
+import styles from './index.module.less' // 开启了ss module，否则直接导入
+
+// Types
+interface I{{pascalCase fileName}}Props {
+  title?: string
+}
+
+// Component
+export const {{pascalCase fileName}}: FC<I{{pascalCase fileName}}Props> = ({ title }) => {
+  // State
+  const [count, setCount] = useState<number>(0)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [data, setData] = useState<any>(null)
+
+  // Refs
+  const containerRef = useRef<HTMLDivElement>(null)
+  const timerRef = useRef<NodeJS.Timeout>()
+
+  // Memoized Values
+  const doubleCount = useMemo(() => count * 2, [count])
+
+  // Callbacks
+  const handleClick = useCallback(() => {
+    setCount(prev => prev + 1)
+  }, [])
+
+  const handleReset = useCallback(() => {
+    setCount(0)
+    setData(null)
+  }, [])
+
+  // Effects
+  useEffect(() => {
+    // 组件挂载时执行
+    console.log('Component mounted')
+
+    // 组件卸载时清理
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    // 当 count 改变时执行
+    document.title = `Count: ${count}`
+  }, [count])
+
+  return (
+    <div ref={containerRef} className={styles.container}>
+      <h1>{title}</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <p>Count: {count}</p>
+          <p>Double: {doubleCount}</p>
+          <button onClick={handleClick}>Increment</button>
+          <button onClick={handleReset}>Reset</button>
+        </>
+      )}
+    </div>
+  )
+}
+
+{{else}}
+import styles from './index.module.less' // 开启了ss module，否则直接导入
+
+export const {{pascalCase fileName}} = ({ title }) => {
+  // State
+  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState(null)
+
+  // Refs
+  const containerRef = useRef(null)
+  const timerRef = useRef()
+
+  // Memoized Values
+  const doubleCount = useMemo(() => count * 2, [count])
+
+  // Callbacks
+  const handleClick = useCallback(() => {
+    setCount(prev => prev + 1)
+  }, [])
+
+  const handleReset = useCallback(() => {
+    setCount(0)
+    setData(null)
+  }, [])
+
+  // Effects
+  useEffect(() => {
+    // 组件挂载时执行
+    console.log('Component mounted')
+
+    // 组件卸载时清理
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    // 当 count 改变时执行
+    document.title = `Count: ${count}`
+  }, [count])
+
+  return (
+    <div ref={containerRef} className={styles.container}>
+      <h1>{title}</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <p>Count: {count}</p>
+          <p>Double: {doubleCount}</p>
+          <button onClick={handleClick}>Increment</button>
+          <button onClick={handleReset}>Reset</button>
+        </>
+      )}
+    </div>
+  )
+}
+{{/if}}
+
+export default {{pascalCase fileName}}
