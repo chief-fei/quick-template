@@ -1,8 +1,8 @@
 {
   "name": "fast-template",
   "displayName": "fast-template",
-  "version": "1.0.0",
-  "description": "quick create react component or vue component with vscode extension",
+  "version": "1.0.1",
+  "description": "quick create react component or vue component or mini program page or component with vscode extension",
   "categories": [
     "Other"
   ],
@@ -18,7 +18,11 @@
     "component",
     "page",
     "component",
-    "page"
+    "page",
+    "mini",
+    "mini-program",
+    "mini-program-page",
+    "mini-program-component"
   ],
   "repository": {
     "type": "git",
