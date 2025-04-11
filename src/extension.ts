@@ -12,7 +12,22 @@ export function activate(context: vscode.ExtensionContext) {
     async (uri: vscode.Uri) => createComponent(context, uri, 'vue-component', 'vue'),
   );
 
-  context.subscriptions.push(createReactComponentDisposable, createVueComponentDisposable);
+  const createMiniPageDisposable = vscode.commands.registerCommand(
+    'fast-template.createMiniPage',
+    async (uri: vscode.Uri) => createComponent(context, uri, 'mini-page', 'mini'),
+  );
+
+  const createMiniComponentDisposable = vscode.commands.registerCommand(
+    'fast-template.createMiniComponent',
+    async (uri: vscode.Uri) => createComponent(context, uri, 'mini-component', 'mini'),
+  );
+
+  context.subscriptions.push(
+    createReactComponentDisposable,
+    createVueComponentDisposable,
+    createMiniPageDisposable,
+    createMiniComponentDisposable,
+  );
 }
 
 // This method is called when your extension is deactivated

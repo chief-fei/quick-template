@@ -1,0 +1,103 @@
+{{#if (eq languageType "typescript")}}
+interface I{{pascalCase fileName}}Data {
+  // 组件数据
+}
+
+interface I{{pascalCase fileName}}Props {
+  className?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  title?: string;
+  loading?: boolean;
+  loadingText?: string;
+  isEmpty?: boolean;
+  emptyImage?: string;
+  emptyText?: string;
+  error?: {
+    message: string;
+  } | null;
+}
+
+interface I{{pascalCase fileName}}Methods {
+  handleCancel(): void;
+  handleConfirm(): void;
+  handleRetry(): void;
+}
+
+Component<I{{pascalCase fileName}}Data, I{{pascalCase fileName}}Props, I{{pascalCase fileName}}Methods>({
+{{else}}
+Component({
+{{/if}}
+  options: {
+    multipleSlots: true,
+    styleIsolation: 'isolated'
+  },
+
+  properties: {
+    className: {
+      type: String,
+      value: ''
+    },
+    showHeader: {
+      type: Boolean,
+      value: true
+    },
+    showFooter: {
+      type: Boolean,
+      value: true
+    },
+    title: {
+      type: String,
+      value: ''
+    },
+    loading: {
+      type: Boolean,
+      value: false
+    },
+    loadingText: {
+      type: String,
+      value: '加载中...'
+    },
+    isEmpty: {
+      type: Boolean,
+      value: false
+    },
+    emptyImage: {
+      type: String,
+      value: ''
+    },
+    emptyText: {
+      type: String,
+      value: '暂无数据'
+    },
+    error: {
+      type: Object,
+      value: null
+    }
+  },
+
+  data: {
+    // 组件数据
+  },
+
+  lifetimes: {
+    attached() {
+      // 组件生命周期函数
+    },
+    detached() {
+      // 组件生命周期函数
+    }
+  },
+
+  methods: {
+    handleCancel() {
+      this.triggerEvent('cancel');
+    },
+    handleConfirm() {
+      this.triggerEvent('confirm');
+    },
+    handleRetry() {
+      this.triggerEvent('retry');
+    }
+  }
+});
