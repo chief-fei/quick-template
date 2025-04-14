@@ -22,7 +22,9 @@
     "mini",
     "mini-program",
     "mini-program-page",
-    "mini-program-component"
+    "mini-program-component",
+    "wxml",
+    "emmet"
   ],
   "repository": {
     "type": "git",
@@ -58,6 +60,22 @@
       {
         "command": "fast-template.createMiniComponent",
         "title": "创建小程序组件"
+      },
+      {
+        "command": "wxml.expandEmmet",
+        "title": "展开WXML Emmet缩写"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "wxml.expandEmmet",
+        "key": "tab",
+        "when": "editorTextFocus && resourceExtname == '.wxml'"
+      },
+      {
+        "command": "wxml.expandEmmet",
+        "key": "tab",
+        "when": "editorTextFocus && editorLangId == 'wxml'"
       }
     ],
     "menus": {
@@ -92,7 +110,40 @@
         "label": "模板创建",
         "icon": "$(file-add)"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "wxml",
+        "extensions": [
+          ".wxml"
+        ],
+        "aliases": [
+          "WXML",
+          "wxml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configurationDefaults": {
+      "emmet.includeLanguages": {
+        "wxml": "html"
+      },
+      "files.associations": {
+        "*.wxml": "html"
+      },
+      "[wxml]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.tabCompletion": "on",
+        "editor.quickSuggestions": {
+          "other": "off",
+          "comments": "off",
+          "strings": "off"
+        },
+        "editor.acceptSuggestionOnEnter": "off",
+        "editor.snippetSuggestions": "top"
+      }
+    }
   },
   "activationEvents": [
     "onStartupFinished"

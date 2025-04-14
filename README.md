@@ -11,6 +11,7 @@
 - 支持快速创建微信小程序组件
 - 支持 ts/js
 - 支持vue组件的 composition/options 类型
+- 支持wxml文件的Emmet语法（输入view后按Tab键自动展开为`<view></view>`）
 
 ## 快速开始
 
@@ -45,6 +46,13 @@ vsce package
 ```
 
 ## 功能说明
+
+### wxml的Emmet支持
+
+- 在wxml文件中支持Emmet语法
+- 输入标签名后按Tab键可以自动展开为完整标签
+- 例如：输入`view`后按Tab键，会自动展开为`<view></view>`
+- 支持所有小程序原生标签的Emmet展开
 
 ### 组件创建
 
