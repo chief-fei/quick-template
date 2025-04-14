@@ -1,10 +1,10 @@
 /*
  * @Author: 酋长(chief)
  * @Date: 2025-04-08 14:18:55
- * @LastEditTime: 2025-04-11 10:44:35
+ * @LastEditTime: 2025-04-14 10:26:54
  * @LastEditors: 酋长(chief)
- * @Description:
- * @FilePath: /fast-template/vite.config.ts
+ * @Description: vite 配置文件
+ * @FilePath: /top-boilerplate/vite.config.ts
  */
 import { resolve } from 'path';
 import { defineConfig } from 'vite';

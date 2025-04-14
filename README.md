@@ -1,14 +1,16 @@
 # fast-template
 
-一个现代化的 VSCode 扩展开发模板，使用 Vite 作为构建工具，支持快速创建 React/Vue 组件、小程序页面和组件。
+通过vscode插件快速创建react、vue、微信小程序组件和微信小程序页面
+
+![alt text](public/image.png)
 
 ## 特性
 
 - 支持快速创建 React/Vue 组件
 - 支持快速创建微信小程序页面
 - 支持快速创建微信小程序组件
-- 支持 ts/js 选择
-- 支持vue组件的 composition/options 类型选择
+- 支持 ts/js
+- 支持vue组件的 composition/options 类型
 
 ## 快速开始
 
@@ -40,25 +42,6 @@ pnpm run build
 
 # 打包扩展
 vsce package
-```
-
-## 项目结构
-
-```
-.
-├── src/                    # 源代码目录
-│   ├── extension.ts        # 扩展入口文件
-│   ├── templates/          # 组件模板
-│   │   ├── react/         # React 组件模板
-│   │   └── vue/           # Vue 组件模板
-│   ├── utils/             # 工具函数
-│   │   ├── createComponent.ts  # 组件创建逻辑
-│   │   └── index.ts       # 工具函数入口
-│   └── test/              # 测试文件
-├── .vscode/               # VSCode 配置
-├── out/                   # 构建输出目录
-├── vite.config.ts         # Vite 配置
-└── package.json           # 项目配置
 ```
 
 ## 功能说明
